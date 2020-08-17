@@ -1,0 +1,44 @@
+<div>
+    <button (click)="onJter()">Ajouter</button>
+    
+    <fieldset *ngIf="_mode==2">
+        <legend>Gestion des Produts</legend>
+        <form #f="ngForm" (ngSubmit)="onSave(f.value)">
+        <label for="">name</label>
+        <input type="text" name="name" ngModel >
+        <!--  --> <br>
+        <label for="">Price</label>
+        <input type="text" name="price" ngModel >
+        <!--  --> <br>
+        <label for="">Categorie</label>
+        <select name="category" ngModel  >
+            <!-- size="1" -->
+            <option value="null">Select a Categorie</option>
+         <option *ngFor="let a of _categores" value="{{a._links.self.href}}">{{a._links.self.href}}</option>
+        </select>
+        <br>
+        <button type="submit">Ajouter_prd</button>
+    </form>
+        <button (click)="Quiter()">Quiter</button>
+    </fieldset>
+    <!--  -->
+    <fieldset *ngIf="_mode==1">
+        <legend>Gestion des Categories</legend>
+            <!-- <div *ngIf="_tab">khitous</div> -->
+            <table>
+                <tr><th>name</th> <th>Price</th> <th>Categories</th></tr>
+                <tr *ngFor="let a of _products"> 
+                    <td>{{a.name}}</td> 
+                    <td>{{a.price|number:'0.2'}}</td> 
+                    <!-- <td>{{a._links.self.href}}</td>      -->
+                    <td><button (click)="onDelete(a)">Delete</button></td>
+                 </tr>
+             </table>
+
+
+            <!-- <select  >
+                <option value="null" disabled>Select a Categorie</option>
+                <option  *ngFor="let c of cats" value="{{ c | json }}" [selected]="c.name == currentCat.name">{{c.name}}</option>
+              </select> -->
+    </fieldset>
+</div>

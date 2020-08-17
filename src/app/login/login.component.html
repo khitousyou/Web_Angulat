@@ -1,0 +1,54 @@
+
+
+<div *ngIf="!isAuthentification()" style="margin-top: 100px;margin-left: 400px;width: 300px;">
+<fieldset>
+    <legend>Authentification</legend>&nbsp;
+<form #f="ngForm" (ngSubmit)="onLogin(f.value)">
+    <div>
+<label>Username</label> &nbsp;
+<input type="text" name="username" ngModel>
+<!--  --> </div>
+<div style="margin-top: 10px;">
+<label>Password</label>&nbsp;&nbsp;
+<input type="text" name="password" ngModel>
+<!--  -->
+</div>
+<div style="background-color: red;" *ngIf="_mode==2">le mot de pass ou username incorect</div>
+<br>
+<button style="margin-left: 30px;" type="submit">Se connecter</button>
+</form>
+<button style="margin-left: 30px;" (click)="onCreate()">Cree un Compte</button>
+</fieldset>
+</div>
+
+  
+
+  <div style="margin-top: 100px;margin-left: 400px;width: 300px;"
+   *ngIf="_mode==1">
+      <fieldset>
+        <form #f="ngForm" (ngSubmit)="oncreation(f.value)">
+          <legend>Crea Un Compte </legend>
+          <label for="">Username</label> :
+          <input type="text" name="username" ngModel>
+
+          <label for="">Password</label> :
+          <input type="text" name="password" ngModel>
+
+          <label for="">Confirme</label> :
+          <input type="text" name="confirmedPassword" ngModel>
+          <button type="submit">Create</button>
+</form>
+      </fieldset>
+  </div>
+
+  <div *ngIf="_AppUser">
+    <div *ngFor="let a of _AppUser._embedded.appUsers">
+     {{a.username}}
+    </div>
+  </div>
+
+
+  <div *ngIf="_users">
+    {{_users}}
+    <!-- {{_users._AppUser._embedded.appUsers.confirmedPassword}} -->
+  </div>

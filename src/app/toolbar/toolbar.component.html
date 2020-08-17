@@ -1,0 +1,26 @@
+
+<mat-toolbar class="mat-elevation-z6" style="background-color: #FFFFFF;">
+
+    <span class="co" >Tableau do board</span>
+  <div style="margin-left: 40px;">
+    <a class="co" mat-button>Home</a>
+  </div>
+  <div style="margin-left: 100px;">
+    <!-- <div>{{_alo}}</div> -->
+    <button *ngIf="isAuthentification()"  mat-button [matMenuTriggerFor]="menu">Admin</button>
+    <mat-menu  #menu="matMenu">
+      <button  mat-menu-item *ngIf="isUser()" routerLink="admin-cat">Gestion Categories</button>
+      <button  mat-menu-item *ngIf="isUser()" routerLink="admin-prd">Gestion des produits </button>
+      <button  mat-menu-item *ngIf="isAdmin()" routerLink="admin-user"> Gestion des utilisateur </button>
+      <button  mat-menu-item routerLink="/cat" > Get Categories </button>
+      <button  mat-menu-item routerLink="/Nest" >Nest JS</button>
+    </mat-menu>
+  </div>
+  
+    
+  <div style="margin-left: 733px;">
+    <a class="co" mat-button *ngIf="!isAuthentification()"  routerLink="/login">Login</a>
+    <a class="co" mat-button *ngIf="isAuthentification()"  (click)="logout()">Logout</a>
+  </div>
+  </mat-toolbar>
+

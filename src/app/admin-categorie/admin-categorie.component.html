@@ -1,0 +1,42 @@
+<div>
+    <fieldset>
+        <legend>Gestion Categories</legend>
+        <div>
+            <button (click)="onAjouter()">Ajouter Caegorie</button>
+        </div>
+        <div *ngIf="mode=='1'">
+         <form #f="ngForm" (ngSubmit)="onSaveCate(f.value)">
+          <label for="">Name Categorie</label> : 
+          <input name="name" ngModel type="text" >
+          <button type="submit">Save</button>
+         </form>
+        </div>
+        <br>
+        <div *ngIf="mode=='list'">
+        <table *ngIf="_categories">
+            <tr>
+                <th>Name</th> 
+            </tr>
+             <tr *ngFor="let a of _categories._embedded.categories">
+                 <td>
+                   {{a.name}}
+                 </td>
+                 <td>
+                     <button (click)="OnDelete(a)">Delete</button>
+                 </td>
+                 <td>
+                    <button (click)="OnEdite(a)">Edite</button>
+                    </td>
+             </tr>
+        </table>
+    </div>
+    <!--  -->
+    <div *ngIf="mode=='2'">
+        <form #f="ngForm" (ngSubmit)="onEditeCate(f.value)">
+            <label for="">Name Categorie</label> : 
+            <input name="name" [(ngModel)]="_currenteCategorie.name" type="text" >
+            <button type="submit">Update</button>
+           </form>
+    </div>
+    </fieldset>
+</div>

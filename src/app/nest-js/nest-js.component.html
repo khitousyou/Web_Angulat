@@ -1,0 +1,23 @@
+<fieldset>
+    <legend>Rest Api </legend>
+    <fieldset>
+        <form #f="ngForm" (ngSubmit)="oncreation(f.value)">
+          <legend>Creation Rest Full Api</legend>
+          <label for="">firstName</label> :
+          <input type="text" name="firstName" ngModel><br>
+
+          <label for="">lastName</label> :
+          <input type="text" name="lastName" ngModel><br>
+          <button type="submit">Create</button>
+</form>
+      </fieldset>
+</fieldset>
+
+<div >
+    <ul>
+        <li *ngFor="let f of Nest">
+            {{Nest.firstName}}
+        </li>
+    </ul>
+   
+</div>

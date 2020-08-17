@@ -1,0 +1,10 @@
+
+
+
+<table  *ngIf="_products">
+    <tr><th>Name</th> <th>Price</th> </tr>
+    <tr *ngFor="let f of _products._embedded.products" >
+        <td>  <a>{{f.name}}</a></td>
+        <td>  <a>{{f.price|number:'0.2'}}</a></td>
+    </tr>
+</table>

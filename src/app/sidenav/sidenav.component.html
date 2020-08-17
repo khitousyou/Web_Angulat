@@ -1,0 +1,25 @@
+<!-- التنقل الجانبي -->
+<mat-sidenav-container *ngIf="isAuthentification()" fullscreen>
+	<mat-sidenav style="background-color: #DB4C51; width: 280px;"  position="start" #sive  opened mode="side">
+    <!-- <img src="" alt="khitous" style="width: 200px; border-radius: 7px; margin-left: 30px;margin-top: 22px;">
+     -->
+    <div style="color: aliceblue;margin-left: 88px;margin-top: 33px;font-size: 20px;"> CATALOGUE</div>
+		<mat-nav-list style="margin-top: 20px;">
+			<mat-divider></mat-divider>
+<a style="margin-top: 22px;"  class="menu_item color" mat-list-item  href="#"><mat-icon class="icon1">home</mat-icon><span class="espace" >Categorie</span></a>
+			<a style="margin-top: 22px;" class="menu_item color" mat-list-item href="#"><mat-icon class="icon1">insert_drive_file
+			</mat-icon> Products</a>
+			<a style="margin-top: 22px;" class="menu_item color" mat-list-item href="#"><mat-icon class="icon1">donut_small</mat-icon><span class="espace">Utilisateur</span> </a>
+			<!-- <a style="margin-top: 22px;" class="menu_item color" mat-list-item href="#"><mat-icon class="icon1">payment</mat-icon><span class="espace">Calculatrice</span> </a> -->
+		</mat-nav-list>
+	</mat-sidenav>
+	<mat-sidenav-content>
+        <app-toolbar></app-toolbar>
+		
+	<div style="width: 400px;margin-top: 200px;">
+		<!-- <app-categories></app-categories> -->
+		<ng-content></ng-content>
+	</div>
+	<!-- <ng-content></ng-content> -->
+	</mat-sidenav-content>
+</mat-sidenav-container>
